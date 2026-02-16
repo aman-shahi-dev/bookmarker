@@ -1,15 +1,26 @@
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
+import { ToastContainer } from "react-toastify";
 import { Outlet } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { checkAuth } from "../store/authSlice";
 
 export const Layout = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(checkAuth());
+  }, [dispatch]);
+
   return (
-    <div className="min-h-screen bg-black text-white w-full flex flex-col font-inter">
+    <div className="font-inter flex min-h-screen w-full flex-col bg-black text-white">
       <Navbar />
-      <main className="flex-1 flex flex-col">
+      <main className="flex flex-1 flex-col">
         <Outlet />
       </main>
       <Footer />
+      <ToastContainer position="top-right" theme="dark" />
     </div>
   );
 };

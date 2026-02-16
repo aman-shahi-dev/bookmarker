@@ -1,9 +1,9 @@
-import {Login } from "../components/Login"
+import { Login } from "../components/Login";
 
 export const LoginPage = () => {
   return (
-    <div className="flex flex-col flex-1 w-full px-6 py-20 items-center justify-center">
-      <Login/>
+    <div className="flex w-full flex-1 flex-col items-center justify-center px-6 py-20">
+      <Login />
     </div>
-  )
-}
+  );
+};
