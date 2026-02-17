@@ -39,7 +39,7 @@ export const Signup = () => {
   return (
     <div className="flex w-full max-w-2xl flex-1 flex-col rounded-2xl border border-neutral-700 md:flex-row">
       <div className="relative w-full md:w-1/2">
-        <div className="absolute flex w-full animate-pulse items-center justify-center py-4 text-xl md:py-6 md:text-2xl">
+        <div className="absolute flex w-full animate-pulse items-center justify-center py-4 text-xl tracking-wide text-yellow-400 md:py-6 md:text-2xl">
           Sign Up
         </div>
         <img
@@ -49,7 +49,7 @@ export const Signup = () => {
         />
       </div>
       <div className="flex flex-1 flex-col items-center justify-center rounded-2xl rounded-t-none p-4 md:rounded-t-2xl md:rounded-l-none">
-        <h1 className="mb-4 text-lg text-black/40 text-shadow-amber-300 text-shadow-sm md:mb-10 md:text-2xl">
+        <h1 className="mb-4 text-lg text-yellow-400 md:mb-10 md:text-2xl">
           Fill the details below
         </h1>
 
@@ -64,7 +64,7 @@ export const Signup = () => {
             type="text"
             placeholder="Name"
             required
-            className="w-full rounded-full bg-amber-400 px-6 py-2 text-black transition duration-300 placeholder:text-neutral-500 focus:scale-103 focus:shadow-[0px_0px_20px_rgba(255,255,255,1)] focus:outline-none"
+            className="w-full rounded-full bg-yellow-400 px-6 py-2 text-black transition duration-300 placeholder:text-neutral-500 focus:scale-103 focus:shadow-[0px_0px_20px_rgba(255,255,255,1)] focus:outline-none"
           />
           <input
             name="email"
@@ -73,7 +73,7 @@ export const Signup = () => {
             type="email"
             placeholder="Email"
             required
-            className="w-full rounded-full bg-amber-400 px-6 py-2 text-black transition duration-300 placeholder:text-neutral-500 focus:scale-103 focus:shadow-[0px_0px_20px_rgba(255,255,255,1)] focus:outline-none"
+            className="w-full rounded-full bg-yellow-400 px-6 py-2 text-black transition duration-300 placeholder:text-neutral-500 focus:scale-103 focus:shadow-[0px_0px_20px_rgba(255,255,255,1)] focus:outline-none"
           />
           <input
             name="password"
@@ -82,22 +82,22 @@ export const Signup = () => {
             type="password"
             placeholder="Password"
             required
-            className="w-full rounded-full bg-amber-400 px-6 py-2 text-black transition duration-300 placeholder:text-neutral-500 focus:scale-103 focus:shadow-[0px_0px_20px_rgba(255,255,255,1)] focus:outline-none focus:not-placeholder-shown:font-extrabold"
+            className="w-full rounded-full bg-yellow-400 px-6 py-2 text-black transition duration-300 placeholder:text-neutral-500 focus:scale-103 focus:shadow-[0px_0px_20px_rgba(255,255,255,1)] focus:outline-none focus:not-placeholder-shown:font-extrabold"
           />
           <button
             type="submit"
-            className="mx-auto mt-2 w-fit cursor-pointer rounded-full bg-linear-to-r from-amber-400 via-black to-amber-300 px-6 py-2 transition duration-300 text-shadow-amber-300 text-shadow-sm hover:bg-linear-to-l hover:from-black hover:via-amber-300 hover:to-black hover:text-black active:scale-95 md:mt-4"
+            className="mx-auto mt-2 w-fit cursor-pointer rounded-full bg-yellow-400 px-6 py-2 text-black transition duration-300 hover:bg-yellow-500 active:scale-95 md:mt-4"
           >
             {loading ? "Creating Account..." : "Sign Up"}
           </button>
         </form>
         <div className="mt-4 flex w-full items-center justify-center gap-4 md:mt-6">
-          <h1 className="text-sm text-amber-300 text-shadow-white text-shadow-xs md:text-lg">
+          <h1 className="text-sm text-yellow-400 md:text-lg">
             Already have an account?
           </h1>
           <Link
             to="/login"
-            className="rounded-full bg-linear-to-br from-amber-300 via-black to-amber-300 px-4 py-2 text-sm text-neutral-300 transition duration-300 text-shadow-amber-300 text-shadow-sm hover:from-black hover:via-amber-300 hover:to-black hover:text-black active:scale-95"
+            className="rounded-full bg-yellow-400 px-4 py-2 text-sm text-black transition duration-300 hover:bg-yellow-500 active:scale-95"
           >
             Login
           </Link>

@@ -14,17 +14,15 @@ export const Home = () => {
   return (
     <div className="flex flex-1 flex-col items-center justify-center">
       {status ? (
-        <h1 className="animate-bounce text-2xl md:text-6xl text-shadow-amber-300 text-shadow-sm">
-          Welcome back {userData?.name}!
-        </h1>
+        <h1 className="text-2xl text-yellow-400 md:text-6xl">Welcome {userData?.name.split(" ")[0]} !</h1>
       ) : (
         <>
-          <h1 className="animate-bounce text-2xl md:text-6xl text-shadow-amber-300 text-shadow-sm">
+          <h1 className="text-2xl text-yellow-400 text-shadow-lg md:text-6xl">
             Welcome to Bookmarker !
           </h1>
           <Link
             to="/login"
-            className="mt-10 rounded-full bg-linear-to-br from-amber-300 via-black to-amber-300 px-6 py-2 text-xl text-neutral-300 transition duration-300 text-shadow-amber-300 text-shadow-sm hover:from-black hover:via-amber-300 hover:to-black hover:text-black active:scale-95 md:px-10 md:py-4 md:text-2xl"
+            className="mt-10 rounded-full bg-yellow-400 bg-linear-to-br px-6 py-2 text-xl text-black transition duration-300 hover:bg-yellow-500 active:scale-95 md:px-10 md:py-4 md:text-2xl"
           >
             Try it now
           </Link>
