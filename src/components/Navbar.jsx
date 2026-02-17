@@ -18,8 +18,11 @@ export const Navbar = () => {
   };
 
   return (
-    <div className="flex w-full items-center justify-between gap-6 border-b border-neutral-700 bg-black px-4 py-3">
-      <Link to="/" className="font-nabla text-xl md:text-2xl">
+    <div className="flex w-full items-center justify-between gap-6 border-b border-neutral-700 bg-[#2A2A2A] px-4 py-3">
+      <Link
+        to="/"
+        className="text-xl font-bold text-shadow-amber-300 text-shadow-sm md:text-2xl"
+      >
         Bookmarker
       </Link>
 

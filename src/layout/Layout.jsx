@@ -14,7 +14,7 @@ export const Layout = () => {
   }, [dispatch]);
 
   return (
-    <div className="font-inter flex min-h-screen w-full flex-col bg-black text-white">
+    <div className="font-jost flex min-h-screen w-full flex-col bg-[#1A1A1A] text-white">
       <Navbar />
       <main className="flex flex-1 flex-col">
         <Outlet />

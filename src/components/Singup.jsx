@@ -39,7 +39,7 @@ export const Signup = () => {
   return (
     <div className="flex w-full max-w-2xl flex-1 flex-col rounded-2xl border border-neutral-700 md:flex-row">
       <div className="relative w-full md:w-1/2">
-        <div className="font-nabla absolute flex w-full animate-pulse items-center justify-center py-4 text-xl md:py-6 md:text-2xl">
+        <div className="absolute flex w-full animate-pulse items-center justify-center py-4 text-xl md:py-6 md:text-2xl">
           Sign Up
         </div>
         <img
@@ -82,7 +82,7 @@ export const Signup = () => {
             type="password"
             placeholder="Password"
             required
-            className="w-full rounded-full bg-amber-400 px-6 py-2 text-black transition duration-300 placeholder:text-neutral-500 focus:scale-103 focus:shadow-[0px_0px_20px_rgba(255,255,255,1)] focus:outline-none"
+            className="w-full rounded-full bg-amber-400 px-6 py-2 text-black transition duration-300 placeholder:text-neutral-500 focus:scale-103 focus:shadow-[0px_0px_20px_rgba(255,255,255,1)] focus:outline-none focus:not-placeholder-shown:font-extrabold"
           />
           <button
             type="submit"
