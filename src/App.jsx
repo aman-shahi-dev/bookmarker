@@ -7,8 +7,8 @@ import { SignupPage } from "./pages/SignupPage";
 import { GeneratePlaylist } from "./pages/GeneratePlaylist";
 import { MyPlaylists } from "./pages/MyPlaylists";
 import { ProtectedRoute } from "./components/ProtectedRoute";
+import { PublicRoute } from "./components/PublicRoute";
 import { useEffect } from "react";
-import { getCurrentUser } from "./services/appwrite";
 import { checkAuth } from "./store/authSlice";
 
 export const App = () => {
@@ -30,10 +30,14 @@ export const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        {/* PUBLIC ROUTES */}
+        {/* ALWAYS ACCESSIBLE */}
         <Route index element={<Home />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/signup" element={<SignupPage />} />
+
+        {/* PUBLIC ROUTES */}
+        <Route element={<PublicRoute isAllowed={status} />}>
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignupPage />} />
+        </Route>
 
         {/* PROTECTED ROUTES */}
         <Route element={<ProtectedRoute isAllowed={status} />}>
@@ -41,7 +45,7 @@ export const App = () => {
           <Route path="/my-playlists" element={<MyPlaylists />} />
         </Route>
 
-        {/* OPTIONAL */}
+        {/* OPTIONAL 404 */}
         <Route
           path="*"
           element={
