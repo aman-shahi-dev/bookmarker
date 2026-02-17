@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { PlaylistActions } from "../components/PlaylistActions";
 
 export const Home = () => {
   const { status, loading, userData } = useSelector((state) => state.auth);
@@ -12,12 +13,17 @@ export const Home = () => {
     );
 
   return (
-    <div className="flex flex-1 flex-col items-center justify-center">
+    <div className="flex flex-1 flex-col items-center justify-start">
       {status ? (
-        <h1 className="text-2xl text-yellow-400 md:text-6xl">Welcome {userData?.name.split(" ")[0]} !</h1>
+        <>
+          <h1 className="text-2xl text-yellow-400 md:text-6xl mt-20 mb-6">
+            Welcome {userData?.name.split(" ")[0]} !
+          </h1>
+          <PlaylistActions />
+        </>
       ) : (
         <>
-          <h1 className="text-2xl text-yellow-400 text-shadow-lg md:text-6xl">
+          <h1 className="text-2xl text-yellow-400 text-shadow-lg md:text-6xl mt-35 mb-6">
             Welcome to Bookmarker !
           </h1>
           <Link
