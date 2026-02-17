@@ -7,7 +7,7 @@ export const Home = () => {
 
   if (loading)
     return (
-      <h1 className="flex flex-1 animate-pulse flex-col items-center justify-center text-2xl md:text-4xl">
+      <h1 className="bg-black text-white flex flex-1 animate-pulse flex-col items-center justify-center text-2xl md:text-4xl">
         Loading...
       </h1>
     );

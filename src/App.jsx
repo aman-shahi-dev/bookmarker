@@ -21,9 +21,11 @@ export const App = () => {
 
   if (loading) {
     return (
-      <h1 className="flex flex-1 animate-pulse items-center justify-center text-2xl md:text-4xl">
-        Loading...
-      </h1>
+      <div className="fixed inset-0 flex h-screen w-screen bg-[#1A1A1A] text-yellow-400 items-center justify-center">
+        <h1 className="flex animate-pulse text-2xl md:text-4xl">
+          Loading...
+        </h1>
+      </div>
     );
   }
 
