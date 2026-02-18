@@ -1,5 +1,5 @@
 import { Client, Account, ID } from "appwrite";
-import { config } from "../config/config";
+import { config } from "../../config/config";
 
 const client = new Client()
   .setEndpoint(config.appwrite_api_endpoint)
