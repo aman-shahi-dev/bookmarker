@@ -1,9 +1,9 @@
-import { VideoCard } from "../components/VideoCard";
+import { PlaylistCard } from "../components/PlaylistCard";
 import { IconArrowLeft } from "@tabler/icons-react";
 import { Link } from "react-router-dom";
 import {
   generateAndSavePlaylist,
-  fetchPlaylistVideos,
+  fetchUserPlaylists,
 } from "../store/playlistSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
@@ -14,14 +14,12 @@ export const GeneratePlaylist = () => {
   const [url, setUrl] = useState("");
   const dispatch = useDispatch();
 
-  // 1. Grab data from Redux
   const { loading, userPlaylists } = useSelector((state) => state.playlists);
   const { userData } = useSelector((state) => state.auth);
 
-  // 2. Fetch existing playlists when Aman logs in or the page loads
   useEffect(() => {
     if (userData?.$id) {
-      dispatch(fetchPlaylistVideos(userData?.$id));
+      dispatch(fetchUserPlaylists(userData?.$id));
     }
   }, [dispatch, userData]);
 
@@ -46,15 +44,16 @@ export const GeneratePlaylist = () => {
     if (generateAndSavePlaylist.fulfilled.match(result)) {
       setUrl("");
       toast.success("Playlist generated and added to your courses! ✅");
+    } else {
+      toast.error("Failed to generate playlist. Try again!");
     }
   };
 
   return (
-    <div className="flex flex-1 flex-col">
-      {/* Search & Input Header */}
+    <div className="flex flex-1 flex-col overflow-hidden">
       <form
         onSubmit={handleGenerate}
-        className="relative mt-2 flex w-full flex-col items-center justify-center gap-4 px-4 py-2 md:mt-4 md:flex-row md:px-10 md:py-4"
+        className="relative  mt-2 flex w-full flex-col items-center justify-center gap-4 px-4 py-2 md:flex-row"
       >
         <Link
           to="/"
@@ -69,7 +68,7 @@ export const GeneratePlaylist = () => {
           value={url}
           onChange={(e) => setUrl(e.target.value)}
           required
-          className="flex w-full max-w-lg rounded-full bg-yellow-400 px-6 py-2 text-black placeholder:text-neutral-700 focus:bg-yellow-500 focus:ring-2 focus:ring-black focus:outline-none"
+          className="flex w-full max-w-lg rounded-full bg-yellow-400 px-6 py-2 text-black placeholder:text-neutral-700 focus:bg-yellow-500 focus:outline-none"
         />
 
         <button
@@ -81,23 +80,21 @@ export const GeneratePlaylist = () => {
         </button>
       </form>
 
-      <hr className="mx-10 border-neutral-800" />
+      <hr className="border-neutral-600" />
 
-      {/* Dashboard Grid: Showing previous playlists */}
-      <div className="flex flex-col p-4 md:px-10">
-        <h2 className="font-nabla mb-6 text-2xl md:text-4xl">My Courses</h2>
-
+      <div className="flex flex-1 flex-col overflow-y-auto p-2 mx-auto">
         {userPlaylists.length > 0 ? (
-          <div className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-10">
-            {userPlaylists.map((course, index) => (
+          <div className="flex w-full flex-wrap items-center justify-start gap-6 p-4">
+            {userPlaylists.map((playlist, index) => (
               <Link
-                to={`/playlist/${course.playlistId}`}
-                key={course.$id || index}
+                className="mx-auto"
+                to={`/playlist/${playlist.playlistId}`}
+                key={playlist.$id || index}
               >
-                <VideoCard
-                  imgSrc={course.thumbnail}
-                  videoNumber={index + 1}
-                  videoTitle={course.title}
+                <PlaylistCard
+                  imgSrc={playlist.thumbnail}
+                  playlistNumber={index + 1}
+                  playlistTitle={playlist.title}
                 />
               </Link>
             ))}

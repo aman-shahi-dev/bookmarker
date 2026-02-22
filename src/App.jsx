@@ -10,6 +10,7 @@ import { ProtectedRoute } from "./components/ProtectedRoute";
 import { PublicRoute } from "./components/PublicRoute";
 import { useEffect } from "react";
 import { checkAuth } from "./store/authSlice";
+import { PlaylistDetail } from "./pages/PlaylistDetail";
 
 export const App = () => {
   const { status, loading } = useSelector((state) => state.auth);
@@ -43,6 +44,7 @@ export const App = () => {
         <Route element={<ProtectedRoute isAllowed={status} />}>
           <Route path="/generate-playlist" element={<GeneratePlaylist />} />
           <Route path="/my-playlists" element={<MyPlaylists />} />
+          <Route path="/playlist/:playlistId" element={<PlaylistDetail />} />
         </Route>
 
         {/* OPTIONAL 404 */}

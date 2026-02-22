@@ -37,7 +37,7 @@ export const Navbar = () => {
   };
 
   return (
-    <div className="flex w-full items-center justify-between gap-6 border-b border-neutral-700 bg-[#2A2A2A] px-4 py-3">
+    <div className="sticky top-0 z-50 flex w-full items-center justify-between gap-6 border-b border-neutral-700 bg-[#2A2A2A] px-4 py-3">
       <Link to="/" className="text-xl font-bold text-yellow-400 md:text-2xl">
         Bookmarker
       </Link>
