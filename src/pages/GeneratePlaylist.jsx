@@ -53,7 +53,7 @@ export const GeneratePlaylist = () => {
     <div className="flex flex-1 flex-col overflow-hidden">
       <form
         onSubmit={handleGenerate}
-        className="relative mt-2 flex w-full flex-col items-center justify-center gap-4 p-4 md:flex-row"
+        className="relative mt-2 flex w-full flex-col items-center justify-center gap-4 p-2 md:flex-row"
       >
         <Link
           to="/"
@@ -82,7 +82,7 @@ export const GeneratePlaylist = () => {
 
       <hr className="border-neutral-600" />
 
-      <div className="grid grid-cols-1 gap-4 overflow-y-auto p-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4">
+      <div className="grid grid-cols-1 gap-4 overflow-y-auto p-4 md:grid-cols-6 md:gap-6 lg:grid-cols-6">
         {userPlaylists.length > 0 ? (
           userPlaylists.map((playlist, index) => (
             <Link
