@@ -3,16 +3,20 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { signup } from "../store/authSlice";
 import { toast } from "react-toastify";
+import {
+  loginWithGoogle,
+  loginWithGithub,
+  loginWithLinkedin,
+} from "../services/appwrite/auth";
+import {
+  IconBrandGoogle,
+  IconBrandGithub,
+  IconBrandLinkedin,
+} from "@tabler/icons-react";
 
 export const Signup = () => {
   const { loading } = useSelector((state) => state.auth);
-
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: "",
-  });
-
+  const [formData, setFormData] = useState({ name: "", email: "", password: "" });
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -24,7 +28,6 @@ export const Signup = () => {
     e.preventDefault();
     try {
       const result = await dispatch(signup(formData));
-
       if (signup.fulfilled.match(result)) {
         toast.success("Signed up successfully");
         navigate("/");
@@ -37,7 +40,7 @@ export const Signup = () => {
   };
 
   return (
-    <div className="flex w-full max-w-2xl flex-1 flex-col rounded-2xl border border-neutral-700 md:flex-row">
+    <div className="m-6 flex w-full max-w-2xl flex-col rounded-2xl border border-neutral-700 md:flex-row">
       <div className="relative w-full md:w-1/2">
         <div className="absolute flex w-full animate-pulse items-center justify-center py-4 text-xl tracking-wide text-yellow-400 md:py-6 md:text-2xl">
           Sign Up
@@ -45,18 +48,15 @@ export const Signup = () => {
         <img
           src="https://images.unsplash.com/photo-1495909617868-3fda03e184ef?q=80&w=1202&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt=""
-          className="h-full w-full rounded-2xl rounded-b-none md:rounded-r-none"
+          className="h-48 w-full rounded-2xl rounded-b-none object-cover md:h-full md:rounded-r-none"
         />
       </div>
-      <div className="flex flex-1 flex-col items-center justify-center rounded-2xl rounded-t-none p-4 md:rounded-t-2xl md:rounded-l-none">
-        <h1 className="mb-4 text-lg text-yellow-400 md:mb-10 md:text-2xl">
+
+      <div className="flex flex-1 flex-col items-center justify-center rounded-2xl rounded-t-none px-4 py-2 md:rounded-l-none md:rounded-t-2xl">
+        <h1 className="mb-3 text-lg text-yellow-400 md:mb-6 md:text-2xl">
           Fill the details below
         </h1>
-
-        <form
-          onSubmit={handleSubmit}
-          className="flex w-full flex-col gap-4 md:gap-6"
-        >
+        <form onSubmit={handleSubmit} className="flex w-full flex-col gap-3 md:gap-6">
           <input
             name="name"
             value={formData.name}
@@ -86,11 +86,44 @@ export const Signup = () => {
           />
           <button
             type="submit"
-            className="mx-auto mt-2 w-fit cursor-pointer rounded-full bg-btn px-6 py-2 text-black transition duration-300 hover:bg-hover active:scale-95 md:mt-4"
+            className="mx-auto mt-1 w-fit cursor-pointer rounded-full bg-btn px-6 py-2 text-black transition duration-300 hover:bg-hover active:scale-95 md:mt-4"
           >
             {loading ? "Creating Account..." : "Sign Up"}
           </button>
         </form>
+
+        {/* Divider */}
+        <div className="my-4 flex w-full items-center gap-3 md:my-6">
+          <div className="h-px flex-1 bg-neutral-700" />
+          <span className="text-sm text-neutral-500">or continue with</span>
+          <div className="h-px flex-1 bg-neutral-700" />
+        </div>
+
+        {/* OAuth Buttons */}
+        <div className="grid w-full grid-cols-3 gap-2">
+          <button
+            onClick={loginWithGoogle}
+            className="flex cursor-pointer items-center justify-center gap-1 rounded-full bg-btn px-2 py-2 text-sm text-black transition duration-300 hover:bg-hover active:scale-95"
+          >
+            <IconBrandGoogle size={16} />
+            <span className="hidden sm:inline">Google</span>
+          </button>
+          <button
+            onClick={loginWithGithub}
+            className="flex cursor-pointer items-center justify-center gap-1 rounded-full bg-btn px-2 py-2 text-sm text-black transition duration-300 hover:bg-hover active:scale-95"
+          >
+            <IconBrandGithub size={16} />
+            <span className="hidden sm:inline">GitHub</span>
+          </button>
+          <button
+            onClick={loginWithLinkedin}
+            className="flex cursor-pointer items-center justify-center gap-1 rounded-full bg-btn px-2 py-2 text-sm text-black transition duration-300 hover:bg-hover active:scale-95"
+          >
+            <IconBrandLinkedin size={16} />
+            <span className="hidden sm:inline">LinkedIn</span>
+          </button>
+        </div>
+
         <div className="mt-4 flex w-full items-center justify-center gap-4 md:mt-6">
           <h1 className="text-sm text-yellow-400 md:text-lg">
             Already have an account?
