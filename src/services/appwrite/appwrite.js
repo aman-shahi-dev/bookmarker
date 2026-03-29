@@ -5,7 +5,7 @@ const client = new Client()
   .setEndpoint(config.appwrite_api_endpoint)
   .setProject(config.appwrite_project_id);
 
-const account = new Account(client);
+export const account = new Account(client);
 
 export const createAccount = async ({ email, password, name }) => {
   try {

@@ -19,6 +19,13 @@ export const checkAuth = createAsyncThunk("auth/check", async () => {
   return await getCurrentUser();
 });
 
+export const oauthCallback = createAsyncThunk(
+  "auth/oauthCallback",
+  async () => {
+    return await getCurrentUser();
+  },
+);
+
 const authSlice = createSlice({
   name: "auth",
   initialState: {
@@ -45,6 +52,18 @@ const authSlice = createSlice({
         state.loading = false;
       })
       .addCase(checkAuth.rejected, (state) => {
+        state.status = false;
+        state.loading = false;
+      })
+      .addCase(oauthCallback.fulfilled, (state, action) => {
+        state.status = true;
+        state.userData = action.payload;
+        state.loading = false;
+      })
+      .addCase(oauthCallback.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(oauthCallback.rejected, (state) => {
         state.status = false;
         state.loading = false;
       })

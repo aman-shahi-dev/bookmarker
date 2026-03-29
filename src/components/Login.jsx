@@ -3,15 +3,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { login } from "../store/authSlice";
 import { useState } from "react";
 import { toast } from "react-toastify";
+import {
+  loginWithGoogle,
+  loginWithGithub,
+  loginWithLinkedin,
+} from "../services/appwrite/auth";
+import {
+  IconBrandGoogle,
+  IconBrandGithub,
+  IconBrandLinkedin,
+} from "@tabler/icons-react";
 
 export const Login = () => {
   const { loading } = useSelector((state) => state.auth);
-
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
-
+  const [formData, setFormData] = useState({ email: "", password: "" });
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -23,7 +28,6 @@ export const Login = () => {
     e.preventDefault();
     try {
       const result = await dispatch(login(formData));
-
       if (login.fulfilled.match(result)) {
         toast.success("Logged in successfully");
         navigate("/");
@@ -38,7 +42,7 @@ export const Login = () => {
   return (
     <div className="flex w-full max-w-2xl flex-1 flex-col rounded-2xl border border-neutral-700 md:flex-row">
       <div className="relative w-full md:w-1/2">
-        <div className="absolute flex w-full animate-pulse tracking-wide text-text items-center justify-center py-4 text-xl md:py-6 md:text-2xl">
+        <div className="text-text absolute flex w-full animate-pulse items-center justify-center py-4 text-xl tracking-wide md:py-6 md:text-2xl">
           Login
         </div>
         <img
@@ -48,10 +52,9 @@ export const Login = () => {
         />
       </div>
       <div className="flex flex-1 flex-col items-center justify-center rounded-2xl rounded-t-none p-4 md:rounded-t-2xl md:rounded-l-none">
-        <h1 className="mb-4 text-lg text-text md:mb-10 md:text-2xl">
+        <h1 className="text-text mb-4 text-lg md:mb-6 md:text-2xl">
           Fill the details below
         </h1>
-
         <form
           onSubmit={handleSubmit}
           className="flex w-full flex-col gap-4 md:gap-6"
@@ -63,7 +66,7 @@ export const Login = () => {
             type="email"
             placeholder="Email"
             required
-            className="w-full rounded-full bg-btn px-6 py-2 text-black transition duration-300 placeholder:text-neutral-500 focus:scale-103 focus:shadow-[0px_0px_20px_rgba(255,255,255,1)] focus:outline-none"
+            className="bg-btn w-full rounded-full px-6 py-2 text-black transition duration-300 placeholder:text-neutral-500 focus:scale-103 focus:shadow-[0px_0px_20px_rgba(255,255,255,1)] focus:outline-none"
           />
           <input
             name="password"
@@ -72,22 +75,55 @@ export const Login = () => {
             type="password"
             placeholder="Password"
             required
-            className="w-full rounded-full bg-btn px-6 py-2 text-black transition duration-300 placeholder:text-neutral-500 focus:scale-103 focus:shadow-[0px_0px_20px_rgba(255,255,255,1)] focus:outline-none focus:not-placeholder-shown:font-extrabold"
+            className="bg-btn w-full rounded-full px-6 py-2 text-black transition duration-300 placeholder:text-neutral-500 focus:scale-103 focus:shadow-[0px_0px_20px_rgba(255,255,255,1)] focus:outline-none focus:not-placeholder-shown:font-extrabold"
           />
           <button
             type="submit"
-            className="mx-auto mt-2 w-fit text-black cursor-pointer rounded-full bg-btn px-6 py-2 transition duration-300 hover:bg-hover active:scale-95 md:mt-4"
+            className="bg-btn hover:bg-hover mx-auto mt-2 w-fit cursor-pointer rounded-full px-6 py-2 text-black transition duration-300 active:scale-95 md:mt-4"
           >
             {loading ? "Logging in..." : "Login"}
           </button>
         </form>
+
+        {/* Divider */}
+        <div className="my-4 flex w-full items-center gap-3 md:my-6">
+          <div className="h-px flex-1 bg-neutral-700" />
+          <span className="text-sm text-neutral-500">or continue with</span>
+          <div className="h-px flex-1 bg-neutral-700" />
+        </div>
+
+        {/* OAuth Buttons */}
+        <div className="flex w-full gap-3">
+          <button
+            onClick={loginWithGoogle}
+            className="bg-btn hover:bg-hover flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-full px-4 py-2 text-sm text-black transition duration-300 active:scale-95"
+          >
+            <IconBrandGoogle size={18} />
+            Google
+          </button>
+          <button
+            onClick={loginWithGithub}
+            className="bg-btn hover:bg-hover flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-full px-4 py-2 text-sm text-black transition duration-300 active:scale-95"
+          >
+            <IconBrandGithub size={18} />
+            GitHub
+          </button>
+          <button
+            onClick={loginWithLinkedin}
+            className="bg-btn hover:bg-hover flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-full px-4 py-2 text-sm text-black transition duration-300 active:scale-95"
+          >
+            <IconBrandLinkedin size={18} />
+            LinkedIn
+          </button>
+        </div>
+
         <div className="mt-4 flex w-full items-center justify-center gap-4 md:mt-6">
-          <h1 className="text-sm text-text md:text-lg">
+          <h1 className="text-text text-sm md:text-lg">
             Don't have an account?
           </h1>
           <Link
             to="/signup"
-            className="rounded-full bg-btn px-4 py-2 text-sm text-black transition duration-300 hover:bg-hover active:scale-95"
+            className="bg-btn hover:bg-hover rounded-full px-4 py-2 text-sm text-black transition duration-300 active:scale-95"
           >
             Sign Up
           </Link>
