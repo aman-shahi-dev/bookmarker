@@ -5,6 +5,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
+  /* Font Definitions */
   --font-nabla: "Nabla";
   --font-inter: "Inter", sans-serif;
   --font-anton: "Anton", sans-serif;
@@ -12,23 +13,31 @@
   --font-jost: "Jost", sans-serif;
   --font-mona: "Mona", sans-serif;
 
-  --color-background: #1a1a1a;
-  --color-navbar: #2a2a2a;
-  --color-footer: #2a2a2a;
-  --color-text: #eab308;
-  --color-btn: #eab308;
-  --color-hover: #ffbf00;
-  --color-red-op: #cc0000;
-  --color-red-op-hover: #d32f2f;
+  /* Refined Color Scheme */
+  --color-background: #0f172a; /* Deep Navy */
+  --color-navbar: #1e293b; /* Slate Navy */
+  --color-footer: #0f172a;
+
+  /* Text Colors */
+  --color-text-primary: #ffffff; /* High contrast white */
+  --color-text-secondary: #94a3b8; /* Muted slate for labels */
+
+  /* Buttons & Interactions */
+  --color-btn: #ffffff; /* Slate blue for secondary/glass feel */
+  --color-btn-primary: #38bdf8; /* Optional sky blue for "Sign Up" pop */
+  --color-hover: #475569;
+
+  /* Utility / Borders */
+  --color-glass-border: rgba(255, 255, 255, 0.1);
+  --color-glass-bg: rgba(255, 255, 255, 0.05);
 }
 
+/* Ensure dark mode persists with these refined variables */
 .dark {
-  --color-background: #1a1a1a;
-  --color-navbar: #2a2a2a;
-  --color-footer: #2a2a2a;
-  --color-text: #eab308;
-  --color-btn: #eab308;
-  --color-hover: #ffbf00;
-  --color-red-op: #cc0000;
-  --color-red-op-hover: #d32f2f;
+  --color-background: #020617; /* Ultra dark for high-end feel */
+  --color-navbar: #0f172a;
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #cbd5e1;
+  --color-btn: #1e293b;
+  --color-hover: #334155;
 }

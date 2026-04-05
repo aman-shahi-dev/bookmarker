@@ -38,13 +38,14 @@ export const Navbar = () => {
   };
 
   return (
-    <div className="bg-navbar sticky top-0 z-50 flex w-full items-center justify-between gap-6 border-b border-neutral-700 px-4 py-3">
-      <div className="flex items-center justify-center gap-2">
-        <BookmarkerLogo className="w-6 md:w-8 lg:w-10" />
-        <Link to="/" className="text-text text-lg font-bold md:text-2xl">
-          Bookmarker
-        </Link>
-      </div>
+    <div className="sticky h-16 top-0 z-50 flex w-full items-center justify-between gap-6 border-b border-neutral-600 bg-black/20 px-4 py-3 shadow-xl backdrop-blur-3xl">
+      <Link
+        to="/"
+        className="text-text flex items-center justify-center gap-1.5 text-lg font-bold transition-all duration-300 text-shadow-neutral-700 text-shadow-sm active:scale-95 md:text-2xl"
+      >
+        <BookmarkerLogo className="w-6 rounded bg-[#333333] shadow-sm md:w-8 lg:w-10" />
+        Bookmarker
+      </Link>
 
       {loading ? (
         <div className="bg-navbar h-8 w-24 animate-pulse rounded-full"></div>
@@ -85,13 +86,13 @@ export const Navbar = () => {
         <div className="flex items-center justify-evenly gap-4">
           <Link
             to="/login"
-            className="bg-btn hover:bg-hover rounded-full px-3 py-1 text-sm text-black transition duration-300 active:scale-95 md:text-lg"
+            className="group flex items-center gap-3.5 rounded border border-white/30 bg-linear-to-r from-black via-white/30 to-black px-4 py-1 text-sm font-medium text-white backdrop-blur-3xl transition duration-300 ease-in-out hover:bg-white/40 active:scale-95 md:px-6 md:py-1.5 md:text-[17px]"
           >
             Login
           </Link>
           <Link
             to="/signup"
-            className="bg-btn hover:bg-hover rounded-full px-3 py-1 text-sm text-black transition duration-300 active:scale-95 md:text-lg"
+            className="group flex items-center gap-3.5 rounded border border-white/30 bg-linear-to-r from-black via-white/30 to-black px-4 py-1 text-sm font-medium text-white backdrop-blur-3xl transition duration-300 ease-in-out hover:bg-white/40 active:scale-95 md:px-6 md:py-1.5 md:text-[17px]"
           >
             Sign Up
           </Link>

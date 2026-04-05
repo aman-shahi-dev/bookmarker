@@ -57,7 +57,19 @@ export const Home = () => {
     );
 
   return (
-    <div className="flex flex-1 flex-col items-center justify-start">
+    <div
+      className="flex flex-1 flex-col items-center justify-start bg-[#000000]"
+      style={{
+        backgroundImage: `
+                linear-gradient(#555555 0.1px, transparent 0.5px),
+                linear-gradient(90deg, #555555 0.1px, transparent 0.5px),
+                linear-gradient(#000000, #000000)
+              `,
+        backgroundSize: "50px 50px, 50px 50px",
+        backgroundPosition: "0 0, 0 0",
+        backgroundRepeat: "repeat, repeat",
+      }}
+    >
       {status ? (
         <>
           <h1 className="text-text mt-12 mb-6 text-2xl font-bold tracking-tight md:text-6xl">
@@ -88,17 +100,17 @@ export const Home = () => {
         </>
       ) : (
         <>
-          <h1 className="text-text mt-35 mb-6 text-2xl font-bold tracking-tight text-shadow-lg md:text-6xl">
+          <h1 className="mt-35 mb-6 text-2xl font-bold tracking-tight text-[#ffffff] select-none text-shadow-black/50 text-shadow-sm md:text-6xl">
             Stop Scrolling. Start Learning
           </h1>
-          <h2 className="mt-2 max-w-xl px-10 text-center text-lg tracking-tight text-neutral-400 md:text-xl">
+          <h2 className="mt-2 max-w-xl px-10 text-center text-lg tracking-tight text-neutral-500 md:text-xl">
             Turn any messy YouTube playlist into a beautiful, structured course
             in one click. Organize your learning, track your progress, and stay
             focused.
           </h2>
           <Link
             to="/signup"
-            className="bg-btn hover:bg-hover mt-10 rounded-full bg-linear-to-br px-6 py-2 text-xl text-black transition duration-300 active:scale-95 md:px-10 md:py-4 md:text-2xl"
+            className="mt-10 rounded border border-white/30 bg-linear-to-r from-black via-white/30 to-black px-6 py-2 text-xl text-white transition duration-300 hover:shadow-[0px_0px_20px_rgba(255,255,255,1)] active:scale-95 md:px-12 md:py-4 md:text-2xl"
           >
             Try it now
           </Link>

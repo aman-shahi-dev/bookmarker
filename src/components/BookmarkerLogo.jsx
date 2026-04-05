@@ -1,5 +1,3 @@
-import * as React from "react";
-
 const BookmarkerLogo = ({
   width = "100%",
   height = "auto",
@@ -14,17 +12,17 @@ const BookmarkerLogo = ({
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    <circle cx={200} cy={200} r={190} fill="" />
+    <circle cx={200} cy={200} r={0} fill="ffffff" />
     <text
       x={200}
-      y={290}
-      fontFamily="Arial Black, Arial, sans-serif"
-      fontSize={260}
+      y={300}
+      fontFamily="Inter, Arial, sans-serif"
+      fontSize={300}
       fontWeight={900}
-      fill="#FFD700"
+      fill="#000000"
       textAnchor="middle"
-      stroke="#FFFFFF"
-      strokeWidth={4}
+      stroke="#ffffff"
+      strokeWidth={10}
     >
       B
     </text>
