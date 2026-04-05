@@ -24,7 +24,7 @@ export const MyPlaylists = () => {
         </div>
         <Link
           to="/"
-          className="mt-10 bg-btn hover:bg-hover right-10 mx-auto mt-3 w-fit rounded-md px-3 py-1 text-black active:scale-95"
+          className="bg-btn hover:bg-hover right-10 mx-auto mt-3 w-fit rounded-md px-3 py-1 text-black active:scale-95 md:mt-10"
         >
           Back
         </Link>

@@ -50,13 +50,13 @@ export const PlaylistDetail = () => {
         {activeVideos.map((video, idx) => (
           <div
             key={video.title || idx}
-            className="flex h-full max-h-80 w-full flex-col items-center justify-start rounded-xl border border-neutral-700 bg-linear-to-br from-yellow-500 to-yellow-700 p-1 shadow-[0px_0px_10px_rgba(255,255,255,0.1)]"
+            className="flex h-full max-h-80 w-full flex-col items-center justify-start rounded-xl border border-neutral-700 bg-[#ffffff]/30 p-1 shadow-[0px_0px_10px_rgba(255,255,255,0.1)]"
           >
             <div className="h-full max-h-40 min-h-40 w-full rounded-xl p-1">
               <img
                 src={video.snippet.thumbnails.medium.url}
                 alt=""
-                className="h-full w-full rounded-xl border border-yellow-600 object-cover shadow-2xl shadow-yellow-100"
+                className="h-full w-full rounded-xl border border-white/30 object-cover shadow-2xl shadow-white"
               />
             </div>
             <div className="flex flex-1 flex-col items-center p-2 md:p-4">
