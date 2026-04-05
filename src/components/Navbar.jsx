@@ -38,7 +38,7 @@ export const Navbar = () => {
   };
 
   return (
-    <div className="sticky h-16 top-0 z-50 flex w-full items-center justify-between gap-6 border-b border-neutral-600 bg-black/20 px-4 py-3 shadow-xl backdrop-blur-3xl">
+    <div className="sticky top-0 z-50 flex h-16 w-full items-center justify-between gap-6 border-b border-neutral-600 bg-black/20 px-4 py-3 shadow-xl backdrop-blur-3xl">
       <Link
         to="/"
         className="text-text flex items-center justify-center gap-1.5 text-lg font-bold transition-all duration-300 text-shadow-neutral-700 text-shadow-sm active:scale-95 md:text-2xl"
@@ -86,13 +86,13 @@ export const Navbar = () => {
         <div className="flex items-center justify-evenly gap-4">
           <Link
             to="/login"
-            className="group flex items-center gap-3.5 rounded border border-white/30 bg-linear-to-r from-black via-white/30 to-black px-4 py-1 text-sm font-medium text-white backdrop-blur-3xl transition duration-300 ease-in-out hover:bg-white/40 active:scale-95 md:px-6 md:py-1.5 md:text-[17px]"
+            className="group flex items-center rounded border border-white/30 bg-linear-to-r from-black via-white/30 to-black px-4 py-1 text-sm font-medium text-white backdrop-blur-3xl transition duration-300 ease-in-out hover:bg-white/40 active:scale-95 md:px-6 md:py-1.5 md:text-[17px]"
           >
             Login
           </Link>
           <Link
             to="/signup"
-            className="group flex items-center gap-3.5 rounded border border-white/30 bg-linear-to-r from-black via-white/30 to-black px-4 py-1 text-sm font-medium text-white backdrop-blur-3xl transition duration-300 ease-in-out hover:bg-white/40 active:scale-95 md:px-6 md:py-1.5 md:text-[17px]"
+            className="group flex items-center rounded border border-white/30 bg-linear-to-r from-black via-white/30 to-black px-2 py-1 text-sm font-medium text-white backdrop-blur-3xl transition duration-300 ease-in-out hover:bg-white/40 active:scale-95 md:px-6 md:py-1.5 md:text-[17px]"
           >
             Sign Up
           </Link>
